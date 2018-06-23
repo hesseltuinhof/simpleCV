@@ -6,7 +6,7 @@ inspired by the gorgeous [Fancy CV](https://www.sharelatex.com/templates/cv-or-r
 well as [Awesome CV](https://github.com/posquit0/Awesome-CV).
 
 ## Preview
-Add pdfs for preview here.
+[![PREVIEW](https://github.com/antholzer/media/blob/master/simpleCV/cv.png?raw=True)](https://github.com/antholzer/media/blob/master/simpleCV/cv.pdf)
 
 ## Install Notes
 Make sure that you have [Google's Roboto](https://github.com/google/roboto) installed. If you want
