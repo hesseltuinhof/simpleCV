@@ -20,3 +20,8 @@ Just edit the `main.tex` file according to your liking then compile via `xelatex
 
 ## Links
 [Color Palettes](https://coolors.co/)
+
+## Authors
+* [Stephan Antholzer](https://github.com/antholzer)
+* [Johannes Sappl](https://github.com/johannessappl)
+* [Hessel Tuinhof](https://github.com/hesseltuinhof)
