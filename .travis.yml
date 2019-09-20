@@ -1,0 +1,40 @@
+# based on: https://github.com/PHPirates/travis-ci-latex-pdf
+language: generic
+before_install:
+- sudo apt-get install -y imagemagick ghostscript
+# converting PDFs is disabled by default (for security)
+- sudo sed -i '/PDF/s/none/write|read/g' /etc/ImageMagick-6/policy.xml
+install:
+- export PATH="$HOME/miniconda/bin:$PATH"
+- if ! command -v conda > /dev/null; then wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+  -O miniconda.sh; bash miniconda.sh -b -p $HOME/miniconda -u; conda config --add
+  channels conda-forge; conda config --set always_yes yes; conda install tectonic==0.1.11;
+  fi
+cache:
+  directories:
+  - "$HOME/miniconda"
+  - "$HOME/.cache/Tectonic"
+script:
+- tectonic ./cv.tex --print
+- tectonic ./cover.tex --print
+before_deploy:
+- convert -density 600 cv.pdf -quality 90 cv.png
+- convert -density 600 cover.pdf -quality 90 cover.png
+deploy:
+  provider: releases
+  api_key:
+    secure: # TODO add key
+  file:
+  - cv.pdf
+  - cover.pdf
+  skip_cleanup: true
+  on:
+    tags: true
+after_deploy:
+- git remote add origin-token https://${GITHUBTOKEN}@github.com/antholzer/testtex
+- git pull
+- git push origin-token :assets && git branch -d assets
+- git checkout --orphan assets
+- git rm -rf fonts/ && git rm *.tex *.sty *.cls *.pdf && git add *.png
+- git config user.email "htuinhof@gmail.com" && git config user.name "hesseltuinhof"
+- git commit -m "auto update by travis" && git push origin-token assets
