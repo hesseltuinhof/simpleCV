@@ -1,4 +1,7 @@
 # What about simpleCV?
+
+[![Build Status](https://travis-ci.org/hesseltuinhof/simpleCV.svg?branch=master)](https://travis-ci.org/hesseltuinhof/simpleCV)
+
 This repository provides LaTeX templates for a **simple CV** and **cover letter** with a sleek and
 elegant look. It is intended to be used not only by the modern STEM graduate but also by anyone who
 seeks a straightforward, comprehensible and easy to modify implementation. Part of our design was
@@ -8,7 +11,7 @@ well as [Awesome CV](https://github.com/posquit0/Awesome-CV).
 ## Preview
 | CV | Cover Letter |
 |:---:|:---:|
-|[![CV PREVIEW](https://github.com/antholzer/media/blob/master/simpleCV/cv.png?raw=True)](https://github.com/antholzer/media/blob/master/simpleCV/cv.pdf) | [![Cover PREVIEW](https://github.com/antholzer/media/blob/master/simpleCV/cover.png?raw=True)](https://github.com/antholzer/media/blob/master/simpleCV/cover.pdf)
+|[![CV PREVIEW](https://github.com/hesseltuinhof/simpleCV/blob/assets/cv.png?raw=True)](https://github.com/hesseltuinhof/simpleCV/releases/latest/download/cv.pdf) | [![Cover PREVIEW](https://github.com/hesseltuinhof/simpleCV/blob/assets/cover.png?raw=True)](https://github.com/hesseltuinhof/simpleCV/releases/latest/download/cover.pdf)
 
 ## Install Notes
 Make sure that you have [Google's Roboto](https://github.com/google/roboto) installed. If you want
