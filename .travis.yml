@@ -18,13 +18,9 @@ script:
 - tectonic ./cv.tex --print
 - tectonic ./cover.tex --print
 after_success:
-- convert -density 600 cv.pdf -quality 90 cv.png
-- convert -density 600 cover.pdf -quality 90 cover.png
-- git remote add origin-token https://${GITHUBTOKEN}@github.com/hesseltuinhof/simpleCV
-- git push origin-token :assets
-- git branch -d assets
-- git checkout --orphan assets
-- git rm -rf fonts/ && git rm -f *.tex *.sty *.cls
-- git add cv.png cv.pdf cover.png cover.pdf
-- git config user.email "travis@travis-ci.org" && git config user.name "Travis CI"
-- git commit -m "Travis auto upload $TRAVIS_BUILD_NUMBER" && git push --quiet origin-token assets
+- ./push.sh
+branches:
+  except:
+  - assets
+after_success:
+- ./push.sh
