@@ -18,9 +18,7 @@ script:
 - tectonic ./cv.tex --print
 - tectonic ./cover.tex --print
 after_success:
-- ./push.sh
+- ./.push.sh
 branches:
   except:
   - assets
-after_success:
-- ./push.sh

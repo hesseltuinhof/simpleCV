@@ -9,7 +9,7 @@ fi
 convert -density 600 test.pdf -quality 90 test.png
 
 # TODO: change env variabels encrypted_*
-openssl aes-256-cbc -K $encrypted_e6cc0fb2b8da_key -iv $encrypted_e6cc0fb2b8da_iv -in .push-token.enc -out push-token -d
+openssl aes-256-cbc -K $encrypted_da622da7f4d3_key -iv $encrypted_da622da7f4d3_iv -in .push-token.enc -out .push-token -d
 chmod 600 push-token
 eval $(ssh-agent -s)
 ssh-add push-token
