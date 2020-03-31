@@ -4,6 +4,7 @@ before_install:
 - sudo apt-get install -y imagemagick ghostscript
 # converting PDFs is disabled by default (for security)
 - sudo sed -i '/PDF/s/none/write|read/g' /etc/ImageMagick-6/policy.xml
+- sudo apt-get install -y fonts-roboto
 install:
 - export PATH="$HOME/miniconda/bin:$PATH"
 - if ! command -v conda > /dev/null; then wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
