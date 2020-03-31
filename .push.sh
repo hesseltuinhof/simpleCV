@@ -24,7 +24,7 @@ fi
 
 git checkout --orphan assets
 git rm -rf fonts/ && git rm -f *.tex *.sty *.cls .push-token.enc
-git add cv.png cv.pdf cover.png cover.pdf
+git add -f cv.png cv.pdf cover.png cover.pdf
 git config user.email "travis@travis-ci.org"
 git config user.name "travis ci"
 git commit -m "travis auto upload $TRAVIS_BUILD_NUMBER"
