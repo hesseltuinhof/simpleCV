@@ -1,0 +1,25 @@
+# based on: https://github.com/PHPirates/travis-ci-latex-pdf
+language: generic
+before_install:
+- sudo apt-get install -y imagemagick ghostscript
+# converting PDFs is disabled by default (for security)
+- sudo sed -i '/PDF/s/none/write|read/g' /etc/ImageMagick-6/policy.xml
+- sudo apt-get install -y fonts-roboto
+install:
+- export PATH="$HOME/miniconda/bin:$PATH"
+- if ! command -v conda > /dev/null; then wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+  -O miniconda.sh; bash miniconda.sh -b -p $HOME/miniconda -u; conda config --add
+  channels conda-forge; conda config --set always_yes yes; conda install tectonic==0.1.11;
+  fi
+cache:
+  directories:
+  - "$HOME/miniconda"
+  - "$HOME/.cache/Tectonic"
+script:
+- tectonic ./cv.tex --print
+- tectonic ./cover.tex --print
+after_success:
+- ./.push.sh
+branches:
+  except:
+  - assets
